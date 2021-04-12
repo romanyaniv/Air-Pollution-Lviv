@@ -1,0 +1,26 @@
+---
+title: "Air Pollution Lviv"
+author: "Roman Yaniv"
+date: "4/12/2021"
+output: html_document
+---
+
+## Loading the libraries
+```{r, message=FALSE, cache=TRUE}
+library(dplyr)
+library(ggplot2)
+library(readxl)
+``` 
+
+##Loading the data
+```{r, warning=FALSE}
+URL <- 'http://opendata.city-adm.lviv.ua/dataset/a0cc3549-6762-4b13-af4e-6f5c9e3ed1a5/resource/dfc41821-4c99-4e1b-bac8-857e9a46e944/download/air_pollutant_measurements_lviv-2011-2021.xlsx'
+download.file(url = URL, destfile = 'Lviv_air_pollution.xlsx', na=c('null', 'NA'))
+air <- read_excel('Lviv_air_pollution.xlsx')
+```
+##Checking the data
+```{r, cache=TRUE}
+str(air)
+head(air, 2)
+```
+
